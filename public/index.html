@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mnguni Digital</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="firebase-init.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      scroll-behavior: smooth;
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #e3f2fd, #f1f8e9);
+      color: #222;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    header.hero {
+      background: linear-gradient(120deg, #001f3f, #0074D9);
+      color: rgb(18, 18, 18);
+      padding: 4rem 1rem;
+      text-align: center;
+      background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+    }
+   .btn-primary {
+  background-color: #0074D9;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease; /* Updated */
+}
+
+    .btn-primary:hover {
+      background-color: #005fa3;
+    }
+    .fade-in {
+      animation: fadeInUp 1s ease forwards;
+    }
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .highlight-box {
+      background: #0074D9;
+      color: white;
+      padding: 1.2rem;
+      border-radius: 10px;
+      margin-top: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .about-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .about-section img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      object-fit: cover;
+    }
+    .about-content {
+      flex: 1;
+      min-width: 250px;
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      flex: 1 1 300px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    footer {
+      background: #001f3f;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      .about-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .grid {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero fade-in">
+    <div class="container">
+      <h1>Mnguni Digital</h1>
+      <p style="max-width: 800px; margin: 1rem auto; font-size: 1.1rem;">
+        We are a young, energetic tech company that builds modern websites and Android apps for businesses, non-profits, and start-ups across South Africa. Whether you're looking to boost your online presence, build a mobile tool to manage operations, or launch something bold from scratch — we bring your vision to life with smart design, reliable code, and a passion for impact.
+      </p>
+      <a href="#contact" class="btn-primary">Get Started</a>
+    </div>
+  </header>
+
+  <section id="services" class="section fade-in">
+    <div class="container">
+      <h2 style="text-align:center;">Our Services</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Website Development</h3>
+          <p>Custom, modern websites tailored to your brand using HTML, CSS, JavaScript, and Firebase backend.</p>
+          <p><strong>Estimated Timeline:</strong> 5–10 business days.<br><em>If you're in our project queue, expect up to 3 weeks.</em></p>
+          <p><strong>Starting from:</strong> R3,000</p>
+        </div>
+        <div class="card">
+          <h3>Android App Development</h3>
+          <p>Functional Android apps designed to fit your business or non-profit operations with Firebase database integration.</p>
+          <p><strong>Estimated Timeline:</strong> 2.5 months (if no web app).<br><em>Including web app: expect up to 1.5–2 months depending on complexity and availability.</em></p>
+          <p><strong>Starting from:</strong> R6,500</p>
+        </div>
+        <div class="card">
+          <h3>NGO & NPO Solutions</h3>
+          <p>Donation portals, registration systems, event apps, and more — built for purpose-driven organizations on a budget.</p>
+          <p><strong>Timeline:</strong> 1–3 weeks based on workload</p>
+          <p><strong>Special Rate:</strong> Starting at R2,500</p>
+        </div>
+      </div>
+      <div class="highlight-box" style="margin-top: 3rem;">
+        <h3>What You'll Need To Get Started:</h3>
+        <ul style="line-height: 1.8;">
+          <li>✔️ A short description of your business, NGO, or project</li>
+          <li>✔️ Any images, logos, or documents you’d like included</li>
+          <li>✔️ A preferred color scheme (we can help with this!)</li>
+          <li>✔️ Your budget and desired timeline</li>
+        </ul>
+        <p>We’ll guide you through the rest 🚀</p>
+      </div>
+    </div>
+  </section>
+    </header>
+
+<section id="about" class="section fade-in">
+  <div class="container">
+    <h2 style="text-align: center;">About Us</h2>
+    <div class="card">
+      <div class="about-content">
+        <p style="font-size: 1.1rem; line-height: 1.8;">
+          <strong>Mnguni Digital</strong> is a South African-based digital agency founded by
+          <strong>Azande Mnguni</strong>, a passionate web and mobile app developer, alongside her
+          business partner <strong>Qhawe Ngcongo</strong>.
+          <br><br>
+          Together, we’re dedicated to helping businesses, NGOs, and NPOs build impactful, modern
+          digital platforms — whether it’s a responsive website, a powerful web app, or a full-featured
+          Android application.
+          <br><br>
+          We believe that technology should be accessible, empowering, and tailored to your vision.
+          At Mnguni Digital, our approach is deeply collaborative — we don’t just deliver projects,
+          we build partnerships that last.
+          <br><br>
+          From branding to backend, our team ensures that every product we deliver is reliable,
+          visually stunning, and built for growth.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section id="contact" class="section fade-in">
+  <div class="container">
+    <h2>Contact Us</h2>
+
+    <div style="max-width: 600px; margin: 0 auto; background-color: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);">
+      <form id="contactForm" style="display: flex; flex-direction: column; gap: 1rem;">
+        <input
+          type="text"
+          id="name"
+          placeholder=" Your Full Name"
+          required
+          style="padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;"
+        />
+        <input
+          type="email"
+          id="email"
+          placeholder=" Your Email Address"
+          required
+          style="padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;"
+        />
+        <textarea
+          id="message"
+          placeholder=" Your Message"
+          required
+          rows="5"
+          style="padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem; resize: vertical;"
+        ></textarea>
+        <button type="submit" class="btn-primary" style="padding: 14px; border-radius: 8px; font-size: 1rem; cursor: pointer;">
+           Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+  <footer class="fade-in">
+    <div class="container">
+      <p>&copy; 2025 Mnguni Digital. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js" type="module"></script>
+</body>
+</html>
+
